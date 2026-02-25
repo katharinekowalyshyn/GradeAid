@@ -28,10 +28,12 @@ class GradingBot:
     based on course materials.
     """
     
+
     def __init__(
-        self,
-        session_id: str,
-        model: str = "4o-mini",
+        self, 
+        session_id: str, 
+        model: str = "4o-mini", 
+        last_k: int = 10
     ):
         """
         Initialize the GradingBot.
@@ -44,6 +46,9 @@ class GradingBot:
         self.client = LLMProxy()
         self.session_id = session_id
         self.model = model
+
+        self.last_k = last_k 
+
         # Fixed RAG and temperature parameters
         self.rag_threshold = 0.3
         self.rag_k = 2
@@ -479,22 +484,21 @@ If RAG context is provided:
         }
     
 
-    ## New method to generate interactive response
     def generate_interactive_response(
         self,
         conversation: list[dict],
         assignment_name: str = None,
-        rubric: str = None
     ) -> dict:
         """
-        Generate an interactive response to a student's submission, 
-        using RAG context and conversation history.
+        Generate an interactive response to a student's submission, using RAG context
+        and only the last `last_k` turns for LLM memory.
 
         Args:
             conversation: List of messages in order, each dict with:
                 - 'role': 'student' or 'bot'
                 - 'content': the message text
             assignment_name: Optional assignment name for context
+            rubric: Optional grading rubric (not used here but reserved)
 
         Returns:
             Dict containing:
@@ -502,27 +506,28 @@ If RAG context is provided:
                 - rag_context_used: Context retrieved from course materials
                 - raw_response: Full LLM response
         """
-
         if not conversation:
             return {"error": "Conversation is empty."}
 
-        # Build combined query
-        student_messages = "\n".join(
-            [f"{msg['role'].capitalize()}: {msg['content']}" for msg in conversation]
+        # Extract latest student message only
+        latest_student_msg = next(
+            (msg["content"] for msg in reversed(conversation) if msg["role"] == "student"),
+            ""
         )
 
+        # Run tools on latest message
+        tool_result = self._run_tools_for_submission(latest_student_msg)
+        tool_context = tool_result["tool_context"]
+
+        # Build minimal query (DO NOT include conversation history)
         query_parts = []
         if assignment_name:
             query_parts.append(f"Assignment: {assignment_name}")
 
-        query_parts.append(student_messages)
+        query_parts.append(latest_student_msg)
         query = "\n\n".join(query_parts)
 
-        # Tool detection for latest student message
-        latest_student_msg = conversation[-1]['content'] if conversation[-1]['role'] == 'student' else ""
-        tool_context = self._run_tools_for_submission(latest_student_msg)
-
-        # Retrieve relevant RAG context
+        # Retrieve RAG context
         rag_result = self.client.retrieve(
             query=query,
             session_id=self.session_id,
@@ -539,36 +544,44 @@ If RAG context is provided:
         rag_context = rag_result.get("rag_context", []) if isinstance(rag_result, dict) else []
         formatted_context = self._format_rag_context(rag_context)
 
-        # Build system prompt for interactive tutoring
-        system_prompt = """You are an expert teaching assistant for a Discrete Math course.
-    Your goal is to interactively guide the student:
+        # System prompt for tutoring
+        system_prompt_inter = """You are an expert instructor helping an teaching assistant evaluate a student submission.
 
-    - Evaluate correctness, clarity, and logic of their answer
-    - Ask probing questions to make the student think deeper
-    - Provide hints or counterexamples if the answer is partially wrong
-    - Avoid giving the full solution away
-    - Encourage the student and explain reasoning clearly
+        Your job is to:
 
-    Format the response as plain text. Do not include numerical scores."""
-        
-        # Combine all context
+        - Address instructor's concerns
+        - Analyze the student's reasoning if instructor provides it.
+        - Identify correct and incorrect steps
+        - Point out conceptual misunderstandings
+        - Suggest how partial credit could be assigned
+        - Highlight ambiguous grading areas
+        - Recommend clarifications to the rubric if needed
+
+        You are NOT tutoring the student.
+        You are advising the instructor.
+
+        Be analytical, precise, and professional.
+        Do not assign a final score unless asked.
+        Provide structured insights.
+        """
+        # Combine context for LLM
         full_query_parts = []
         if formatted_context:
             full_query_parts.append(formatted_context)
         if tool_context:
             full_query_parts.append("\nTOOL VERIFICATION RESULTS:\n" + tool_context)
-        full_query_parts.append(query)
-
+        full_query_parts.append(latest_student_msg)
         full_query = "\n\n".join(full_query_parts)
 
-        # Generate response using LLM
+        # Generate response with last_k controlling memory
         response = self.client.generate(
             model=self.model,
-            system=system_prompt,
+            system=system_prompt_inter,
             query=full_query,
-            temperature=0.5,  # Slightly more creative for interaction
+            temperature=0.5,
             session_id=self.session_id,
-            rag_usage=False
+            rag_usage=False,
+            lastk=self.last_k
         )
 
         response_text = response.get("result", "")
@@ -578,7 +591,7 @@ If RAG context is provided:
             "rag_context_used": formatted_context if formatted_context else "No relevant context retrieved",
             "raw_response": response
         }
-    
+
     def grade_from_file(
         self,
         question: str,

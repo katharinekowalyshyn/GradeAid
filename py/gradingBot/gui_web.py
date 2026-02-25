@@ -445,12 +445,11 @@ def main():
                                     st.info("No relevant context was retrieved from course materials.")
                     except Exception as e:
                         st.error(f"Error during grading: {str(e)}")
-    # Tab 3: Interactive Q&A
+    # Tab 3: Interactive Review
     with tab3:
-        st.markdown('<div class="sub-header">💬 Interactive Q&A</div>', unsafe_allow_html=True)
+        st.markdown('<div class="sub-header">💬 Instructor Review Assistant</div>', unsafe_allow_html=True)
         st.markdown(
-            "Students can ask questions about assignments or course material. "
-            "The bot will provide feedback, counterexamples, or prompts for deeper thinking without giving away the answer."
+            "Get analytical feedback and grading advice before finalizing a score. "
         )
 
         # Assignment info
@@ -463,13 +462,13 @@ def main():
 
         # Question and student answer
         question_input = st.text_area(
-            "Question/Problem Statement (optional)",
+            "Question/Problem Statement",
             height=120,
-            help="You can provide the question/problem statement here to give context"
+            help="You can provide the question/problem statement here to give context, and specific questions"
         )
 
         student_answer_input = st.text_area(
-            "Student Answer",
+            "Submission to Review",
             height=150,
             help="Enter or paste the student's answer"
         )
@@ -478,39 +477,38 @@ def main():
         if 'interactive_history' not in st.session_state:
             st.session_state.interactive_history = []
 
-        # Send button with unique key
-        if st.button("💡 Submit to Bot", key="interactive_submit", type="primary", use_container_width=True):
+        # Send button
+        if st.button("💡 Analyze Submission", key="interactive_submit", type="primary", use_container_width=True):
             if not student_answer_input:
                 st.error("Please provide a student answer to continue.")
             else:
                 with st.spinner("Bot is thinking..."):
-                    # Build conversation: full history + new student message
-                    conversation = st.session_state.interactive_history.copy()
-                    conversation.append({
+                    # Build latest student message
+                    latest_message = (
+                        (f"Question: {question_input}\n\n" if question_input else "") +
+                        student_answer_input
+                    )
+
+                    # Append student message to conversation history
+                    st.session_state.interactive_history.append({
                         "role": "student",
-                        "content": (
-                            (f"Question: {question_input}\n\n" if question_input else "") +
-                            student_answer_input
-                        )
+                        "content": latest_message
                     })
 
-                    # Call the interactive response method
+                    # Generate bot response using fixed method
                     response = st.session_state.bot.generate_interactive_response(
-                        conversation=conversation,
-                        assignment_name=interactive_assignment if interactive_assignment else None,
+                        conversation=st.session_state.interactive_history,
+                        assignment_name=interactive_assignment if interactive_assignment else None
                     )
 
                     if "error" in response:
                         st.error(f"Error generating response: {response['error']}")
                     else:
-                        # Append bot response to conversation history
-                        conversation.append({
+                        # Append bot message to conversation
+                        st.session_state.interactive_history.append({
                             "role": "bot",
                             "content": response.get("response_text", "No response available")
                         })
-
-                        # Save updated conversation to session
-                        st.session_state.interactive_history = conversation
 
         # Display latest bot feedback first
         if st.session_state.interactive_history:
@@ -524,7 +522,7 @@ def main():
                 st.subheader("📝 Latest Feedback")
                 st.markdown(latest_bot_msg["content"])
 
-            # Then show full conversation history (optional)
+            # Show full conversation (optional)
             st.markdown("---")
             st.subheader("Conversation History")
             for message in st.session_state.interactive_history:
