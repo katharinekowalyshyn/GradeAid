@@ -1,0 +1,175 @@
+Part I
+Problem 1
+(5) Something I learned from section 5 of the textbook is that proving the statement ”A if and only if B” is the same as proving ”if A, then B” and ”if B, then A” (I read section 5 before we discussed this in class, so the concept was new to me at the time). This was extremely helpful for me, because not only did this realization allow me to conceptualize the phrase ’if and only if’, but it also helped me to better understand why the truth tables for iff are false when A and B have different truth values (as it is the combination of the truth table where a true A and false B is not possible for ’A implies B’, and a true B and false A is not possible for ’B implies A’).
+(6) In section 6 of the textbook, I enjoyed reading the advice given about finding counterexamples (and when to look for them) to disprove a proof. For example, I found it extremely helpful that the text recommended the strategy of finding true examples of a claim before finding counterexamples, as to hopefully discover a pattern. This seems kind of intuitive, but I don’t know if I would have thought of the strategy myself, so I definitely will be trying it. Additionally, I appreciated how the text reminded the reader to test out examples using 0 and negative numbers, as these are often forgotten. I made sure to write that down, as I’m sure I’d forget to do so too if I didn’t!
+(7) I loved reading about Boolean algebra in section 7 of the textbook, and I think it has been my favorite topic we’ve covered thus far. The most useful information I took from the section is the fact that, sometimes, a proof can be as simple as writing out a truth table. As the text explains it, this is because – for Boolean algebra, where there is only 2 values (true or false) for each object – the number of possible outcomes is typically small enough to where you can write out all of the outcomes, and therefore, no formal proof is necessary.
+Problem 2
+I discussed this homework set with Elizabeth Ngai and went to Yvonne’s office hours.
+Part II
+Problem 1
+(1) Write in sentences: 5/5 – For each response, I wrote in complete sentences.
+(2) Use helpful connective phrases: 3/5 – I used connective phrases like ”therefore,” ”but,” and ”because,” but there was little variety and I could have used more descriptive ones; definitely a start, but could also be better!
+(3) Your audience is other students in the class who have not seen this problem before: 4/5 – I feel as though my explanations were definitely thorough enough for someone unfamiliar with the problems to follow my line of reasoning, but I didn’t really introduce each section with useful background information, which I think would have been helpful.
+(4) Is it possible to write too much?: 3.5/5 – I definitely wrote a lot for each problem, and looking back on it, I think I could simplify some of my statements, but I still don’t feel like I included too much fluff!
+(5) Avoid shorthand: 5/5 – I wrote out all terms, even if they had symbol counterparts, and did not use things such as arrows.
+(6) You may wish to outline your problem-solving strategy at the beginning of the problem. 4/5 – My work is quite organized, as I made sure to bullet sections and separate explanations by week day/condition. The only thing I think I could add to make this better, and to show a little more problem-solving, is a truth table.
+Problem 2
+Based on the preface of this problem, the current statements are true:
+- right now it is raining
+- right now I am drinking tea
+- right now I am reading a book
+- right now I am somewhere which is not my bedroom
+ABA ? BTTTTFFFTTFFTThe following truth table can be used for this problem:
+Using this information:
+(a) If I am drinking tea right now (true), then I am reading a book (true). This statement is true because the A ? B truth table states that if A is true, then B must B true.
+(b) If I am drinking tea right now (true), then I am in my bedroom (false). This statement is false because the A ? B truth table states that if A is true, then B cannot be false.
+(c) If it is not raining right now (false), then I am drinking tea (true). This statement is true because it is vacuous, so the A ? B truth table states that if A is false, it is possible for B to be true.
+(d) If it is not raining right now (false), then I am riding a bicycle (false). This statement is true because it is vacuous, so the A ? B truth table states that if A is false, it is possible for B to be false.
+(e) If I am wearing purple right now (cannot be proven), then I am drinking tea (this is true). This statement cannot be proven because it is unclear whether you are wearing purple right now; thus, no conclusion can be made.
+(f) If I am reading a book right now (true), then I am at the library (cannot be proven). This statement cannot be proven because the first portion of the statement is true and the second is ambiguous (we do not know your location); it is not vacuous, and thus there will be a different answer if the second portion was true (true statement) or false (false statement).
+Problem 3
+(a) D = “doctor allows”	R = “is very rich”	A = “agrees with me” S = “is suitable for supper”	W = “is wedding cake”
+- The only articles of food that my doctor allows me are not very rich.
+D ? ¬R or R ? ¬D
+- Nothing that agrees with me is unsuitable for supper.
+A ? S or ¬S ? ¬A
+- Wedding cake is always very rich.
+W ? R or ¬R ? ¬W
+- My doctor allows me all articles of food that are suitable for supper.
+S ? D or ¬D ? ¬S
+This means that: W ? R ? ¬D ? ¬S ? ¬A Thus, Wedding cake does not agree with me. (b) G = “guinea-pigs”	I = “hopelessly ignorant of music”
+S = “keeping silence while the Moonlight-Sonata is being played”
+B = “really appreciating Beethoven”
+- Nobody, who really appreciates Beethoven, fails to keep silence while the Moonlight-Sonata is being played.
+B ? S or ¬S ? ¬B
+- Guinea-pigs are hopelessly ignorant of music.
+G ? I or ¬I ? ¬G
+- No-one, who is hopelessly ignorant of music, ever keeps silence while the Moonlight-Sonata is being played.
+I ? ¬S or S ? ¬I
+This means that: G ? I ? ¬S ? ¬B
+Thus, Guinea-pigs are not really appreciating Beethoven.
+Part III
+Problem 5.6
+If an x ? Z and an y ? Z are both odd, then xy is odd:
+- Assume x, y ? Z are odd
+- Then, by definition, x = 2c + 1 and y = 2d + 1 for some c, d ? Z
+- Thus, xy = (2c + 1)(2d + 1) = 4cd + 2c + 2d + 1? Z
+- Then, xy = 2(2cd + c + d) + 1 where 2cd + c + d
+- Then, xy is odd, by definition (QED)
+Problem 5.9
+If a|b and a|c for some a, b, c ? Z, then a|(b + c):
+- Assume a|b and a|c for some a, b, c ? Z
+- Then, by definition, b = ax and c = ay for some x, y ? Z
+- Thus, b + c = ax + ay
+- Thus, b + c = a(x + y), where x + y ? Z
+- Then, a|(b + c), by definition (QED)
+Problem 5.15
+0|x if and only if x = 0, for some x ? Z:
+(1) If 0|x, then x = 0, for some x ? Z:
+- Assume 0|x
+- Then, by definition, 0 * c = x for some c ? Z
+- Because any integer, c, times 0 is 0, x = 0
+(2) If x = 0, then 0|x for some x ? Z:
+- Assume x = 0
+- By definition, 0 = 0 * c, for some c ? Z
+- Then, by substitution, x = 0 = 0 * c, so x = 0 * c
+- Then, 0|x, by definition (QED)
+Problem 6.1
+Disprove: If a and b are integers with a|b, then a ? b:
+- Assume a = 5 and b = -10
+- Thus, 5| ? 10 because 5 * -2 = -10
+- Because 5 > -10, and therefore a > b, this is false
+Problem 6.2
+Disprove: If a and b are nonnegative integers with a|b, then a ? b:
+- Assume a = 5 and b = 0
+- Thus, 5|0 because 5 * 0 = 0
+- Because 5 > 0, and therefore a > b, this is false
+Problem 6.11
+Disprove: An integer x is positive if and only if x + 1 is positive:
+- Assume x = 0
+- Then, x + 1 = 0 + 1 = 1
+- Therefore, even though x + 1 is positive, x = 0 is not, so this is false
+Problem 7.3
+Prove (x ? y) ? (x ? ¬y) is logically equivalent to x:
+xyx ? yx ? ¬y(x ? y) ? (x ? ¬y)TTTFTTFFTTFTFFFFFFFFColumn 1 (x) and Column 5 ((x ? y) ? (x ? ¬y)) are the same, so the expressions are logically equivalent.
+Problem 7.9
+Suppose we have two Boolean expressions that involve ten variables. To prove that these two expressions are logically equivalent, we construct a truth table. How many rows (besides the ”header” row) would this table have?
+(a) A truth table constructed for ten Boolean variables would have 1,024 rows. This is because each variable has 2 possible values (true or false), and there are ten of them, so there will be 210 unique combinations of true and false for the first 10 columns of the table.
+Problem 7.10
+(c) Show that x ? y is not logically equivalent to (x ? ¬y) ? ((¬x) ? y):
+xyx ? yx ?¬y(¬x) ? y(x ? ¬y) ? ((¬x) ? y)TTTFFFTFTTFTFTTFTTFFFFFFColumn 3 (x ? y) and Column 5 ((x ? ¬y) ? ((¬x) ? y)) are different, so the expressions are not logically equivalent.
+Problem 7.11
+One can use a truth table to prove that a Boolean expression is a tautology by demonstrating that all of the truth table’s rows evaluate to true. This is because the rows represent all possible combinations of variables, and if all combinations are true, the expression is a tautology.
+(b) (x ? (x ? y)) ? y
+xyx ? y(x ? (x ? y))(x ? (x ? y)) ? yTTTTTTFFFTFTTFTFFTFTEach of the rows of Column 5 ((x ? (x ? y)) ? y) evaluate to true, so the expression is a tautology.
+Problem 7.15
+Find and prove an expression that is logically equivalent to x ? y and use only the basic operations ?, ?, and ¬. Recall that x ? y = (¬x) ? y.
+xy¬x¬y(¬x) ? y(¬y) ? x((¬x) ? y) ? ((¬y) ? x)x ? yTTFFTTTTTFFTFTFFFTTFTFFFFFTTTTTTColumn 7 (((¬x) ? y) ? ((¬y) ? x)) and Column 5 (x ? y) are the same, so ((¬x) ? y) ? ((¬y) ? x) is logically equivalent to x ? y.
+*BONUS* Problem 7.17
+AB12345678910111213141516TTTTTTFTTFTFFTFFFFTFTTTFTTFFFTTFTFFFFTTTFTTFFTTFTFFTFFFFTFTTTFTTFTFFFFTFThere are 16 different Boolean operators possible.
+*BONUS* Problem 7.18
+Show that all binary Boolean operations can be expressed in terms of ?, ?, ¬
+xy¬x¬y¬x ? y¬y ? x(¬x ? y) ? (¬y ? x)TTFFTTTTFFTFTTFTTFTFTFFTTTTT(1)
+xyx ? yTTTTFTFTTFFF(2)
+xy¬y¬y ? xTTFTTFTTFTFFFFTT(3)
+xy¬x¬x ? yTTFTTFFFFTTTFFTT(4)
+xy¬x¬y¬x ? ¬yTTFFFTFFTTFTTFTFFTTT(5)
+xy¬x¬yx ? yx ? ¬y(x ? y) ? (x ? ¬y)TTFFTFTTFFTFTTFTTFFFFFFTTFFF(6)
+xy¬x¬y¬x ? y¬y ? x(¬x ? y) ? (¬y ? x)TTFFTTTTFFTFTFFTTFTFFFFTTTTT(7)
+xy¬x¬y¬x ? ¬y¬x ? y(¬x ? ¬y) ? (¬x ? y)TTFFFTFTFFTTFFFTTFTTTFFTTTTT(8)
+xy¬x¬yx ? y¬x ? y(x ? y) ? (¬x ? y)TTFFTFTTFFTFFFFTTFFTTFFTTFFF(9)
+xy¬x¬y¬x ? ¬yx ? ¬y(¬x ? ¬y) ? (x ? ¬y)TTFFFTFTFFTTTTFTTFTFFFFTTTTT(10)
+xy¬x¬yx ? ¬y¬x ? y(x ? ¬y) ? (¬x ? y)TTFFFFFTFFTTFTFTTFFTTFFTTFFF(11)
+xyx ? yTTTTFFFTFFFF(12)
+xy¬yx ? ¬yTTFFTFTTFTFFFFTF(13)
+xy¬xy ? ¬xTTFFTFFFFTTTFFTF(14)
+xy¬x¬y¬x ? ¬yTTFFTTFFTFFTTFFFFTTF(15)
+xy¬x¬yx ? ¬y¬x ? y(x ? ¬y) ? (¬x ? y)TTFFFFFTFFTTFFFTTFFTFFFTTFFF(16)
+Last Problem
+I spent approximately 8 hours on this homework assignment (including the bonus questions).
+Scavenger Hunt
+Yvonne
+D = “is a dolphin”H = “is a hat wearer”F = “is friendly”S = “plays soccer”C = “likes chocolate cake”- Hat wearers are never friendly.
+H ? ¬F or F ? ¬H
+- No dolphins play soccer.
+S ? ¬D or D ? ¬S
+- All unfriendly people like chocolate.
+¬F ? C or ¬C ? F
+- Everyone who does not wear a hat plays soccer.
+¬H ? S or ¬S ? H
+This means that: D ? ¬S ? H ? ¬F ? C
+Thus, Dolphins like chocolate cake.
+Jack Z
+If 100% of Tufts students ate pizza growing up, then people who did not eat pizza growing up will not become Tufts students.
+- This statement is false.
+- Assume T = is a Tufts student (currently); assume P = ate pizza growing up.
+- Using those variables, this statement becomes T ? P If someone is a Tufts student, then they ate pizza growing up.
+- The contra-positive of this statement then becomes ¬P ? ¬T If someone did not eat pizza growing up, then they are not a Tufts student.
+- This resulting statement, although appearing to be similar, is not equivalent to ”People who did not eat pizza growing up will not become Tufts students.”
+- Despite the fact that both seems to claim ¬P ? ¬T, the variable T varies from statement to statement.
+- Because the contra-positive talks about current Tufts students while the given statement discusses people who will become Tufts students, they cannot be compared, and it cannot be concluded whether or not people who did not eat pizza growing up will become Tufts students.
+Karen
+The smallest positive integer a that can be part of a counterexample to a|bc ?
+(a|b ? a|c) is 4. In this counterexample, a = 4, b = 2, and c = 2 such that 4|(2 ? 2) works, as 4 * 1 = 4, but neither 4|2 nor 4|2 works, as 4 * n cannot equal 4 for some n ? Z). This is because 4 is a composite number, while the integers that precede it are not. By definition, this means that 4 will have some pair of factors, b, c ? Z such that 1 < b,c < 4. As a result, a|b and a|c will be fractions, which are not contained within Z.
+1 does not work as a counterexample because it’s only factor is itself, so 1|(1?1), 1|1, and 1|1 all result in the integer 1. 2 and 3 are prime numbers, so they do not work either; for each, their only two factors are 1 and themselves, so a|b and a|c can never result in fractions for either number.
+Sophia
+M = “like cookies dipped in milk”	S = “are Santa”
+C = “is a cat”	A = “afraid of Willy Wonka” L = “love lollipops”	W = “winter is your favorite season”
+- If you’re not afraid of Willy Wonka, then you love lollipops.
+¬A ? L or ¬L ? A
+- If you like cookies dipped in milk, then you are Santa.
+M ? S or ¬S ? ¬M
+- Any cat would agree that winter is the worst season.
+C ? ¬W or W ? ¬C
+- Anyone who enjoys lollipops also enjoys dipping cookies in milk.
+L ? M or ¬M ? ¬L
+- If you’re Santa, then of course winter is your favorite season.
+S ? W or ¬W ? ¬S
+This means that: C ? ¬W ? ¬S ? ¬M ? ¬L ? A
+Thus, If you are a cat, then you are afraid of Willy Wonka.
+Vanessa Rose	Homework 2 CS 61, Fall 2023	Page 1
+
+
+
+Vanessa Rose	Homework 2 CS 61, Fall 2023	Page 1
+

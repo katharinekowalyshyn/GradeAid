@@ -1,0 +1,27 @@
+{
+  "submissions_graded": 3,
+  "passed": 3,
+  "results": [
+    {
+      "submission_id": "CS_61__HW_2__submission-1.pdf",
+      "grade": 85.0,
+      "total": 100.0,
+      "passed": true,
+      "feedback": "SCORE: 85/100\n\nPOINTS BY PART: \n- Part I: 30/30\n- Part II: 25/30\n- Part III: 30/40\n\nPOINTS OFF: \n- In Part II, while the student provided good explanations, some sections lacked depth or clarity, particularly in the use of connective phrases and outlining problem-solving strategies. This resulted in a few points being deducted.\n- In Part III, the proofs and logical statements were mostly correct, but some explanations were incomplete or lacked sufficient detail, particularly in the reasoning for the counterexamples.\n\nQUESTIONS CORRECT: \n- Part I: All responses were insightful and demonstrated a good understanding of the material.\n- Part II: Most sections were well done, particularly the writing in complete sentences and avoiding shorthand.\n- Part III: Most problems were solved correctly, with clear logical reasoning.\n\nQUESTIONS INCORRECT: \n- Part II: The use of connective phrases and the introduction of sections could have been improved.\n- Part III: Some proofs lacked sufficient detail or clarity, particularly in the counterexamples.\n\nFEEDBACK: \nOverall, this is a strong submission that demonstrates a solid understanding of the material. However, there are areas for improvement, particularly in providing more detailed explanations and enhancing the clarity of your reasoning. Keep up the good work, and focus on refining your explanations in future assignments!"
+    },
+    {
+      "submission_id": "CS_61__HW_2__submission-1",
+      "grade": 85.0,
+      "total": 100.0,
+      "passed": true,
+      "feedback": "SCORE: 85/100\n\nPOINTS BY PART: \n- Part I: 30/30\n- Part II: 20/25\n- Part III: 35/45\n\nPOINTS OFF: \n- In Part II, the student received a deduction for not using a variety of connective phrases (2 points off), and for not providing sufficient background information for the audience (1 point off). Additionally, the organization of the problem-solving strategy could have been improved with a truth table (1 point off).\n- In Part III, some proofs and counterexamples were not fully articulated or contained minor inaccuracies, leading to a deduction of 10 points.\n\nQUESTIONS CORRECT: \n- All responses in Part I were correct and well-articulated.\n- Most of the responses in Part II were correct, with minor issues in connective phrases and audience consideration.\n- Most proofs in Part III were correct, with a few minor inaccuracies.\n\nQUESTIONS INCORRECT: \n- Part II (2 points off for connective phrases, 1 point off for audience consideration, 1 point off for problem-solving strategy).\n- Part III had minor inaccuracies in some proofs and counterexamples, leading to a total of 10 points off.\n\nFEEDBACK: \nOverall, this is a strong submission with a good understanding of the material. The reflections in Part I were insightful and demonstrated a clear grasp of the concepts. In Part II, while the writing was generally clear, there is room for improvement in the use of connective phrases and providing background for the audience. In Part III, ensure that proofs and counterexamples are fully articulated and accurate. Keep up the good work!"
+    },
+    {
+      "submission_id": "homework2_submissionA_notepad",
+      "grade": 85.0,
+      "total": 100.0,
+      "passed": true,
+      "feedback": "SCORE: 85/100\n\nPOINTS BY PART: \n- Part I: 30/30\n- Part II: 25/30\n- Part III: 30/40\n\nPOINTS OFF: \n- In Part II, the student provided good explanations but could have improved the use of connective phrases and background information, which led to a slight deduction in points. \n- In Part III, while the proofs and logical statements were mostly correct, some explanations lacked clarity or completeness, particularly in the reasoning for the logical equivalences and the final conclusions.\n\nQUESTIONS CORRECT: \n- Part I: All responses are correct and demonstrate understanding of the material.\n- Part II: Most responses are correct, with minor issues in connective phrases and background information.\n- Part III: Most proofs and logical statements are correct, with minor issues in clarity.\n\nQUESTIONS INCORRECT: \n- Part II: Minor deductions for insufficient variety in connective phrases and lack of background information.\n- Part III: Some logical statements could have been clearer, leading to minor deductions.\n\nFEEDBACK: \nOverall, this is a strong submission that demonstrates a solid understanding of the material. The reflections in Part I are insightful, and the proofs in Part III show a good grasp of logical reasoning. However, pay attention to clarity and completeness in your explanations, especially in Part III, to ensure that your reasoning is fully communicated. Keep up the good work!"
+    }
+  ]
+}
